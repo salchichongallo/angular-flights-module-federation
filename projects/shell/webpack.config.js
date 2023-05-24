@@ -4,9 +4,7 @@ const {
 } = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-  remotes: {
-    flights: "http://localhost:4201/remoteEntry.js",
-  },
+  remotes: {},
 
   shared: {
     ...shareAll({

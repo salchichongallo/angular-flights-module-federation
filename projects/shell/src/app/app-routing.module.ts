@@ -1,3 +1,4 @@
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -5,7 +6,11 @@ const routes: Routes = [
   {
     path: 'flights',
     loadChildren: () =>
-      import('flights/FlightsModule').then((m) => m.FlightsModule),
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        exposedModule: './FlightsModule',
+      }).then((m) => m.FlightsModule),
   },
 ];
 
