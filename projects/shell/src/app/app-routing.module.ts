@@ -7,8 +7,8 @@ const routes: Routes = [
     path: 'flights',
     loadChildren: () =>
       loadRemoteModule({
-        type: 'module',
-        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        type: 'manifest',
+        remoteName: 'flights',
         exposedModule: './FlightsModule',
       }).then((m) => m.FlightsModule),
   },
