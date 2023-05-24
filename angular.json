@@ -151,7 +151,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/flights",
 						"index": "projects/flights/src/index.html",
@@ -168,7 +168,9 @@
 						"styles": [
 							"projects/flights/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/flights/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -184,7 +186,8 @@
 									"maximumError": "4kb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/flights/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -198,21 +201,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "flights:build:production"
+							"browserTarget": "flights:build:production",
+							"extraWebpackConfig": "projects/flights/webpack.prod.config.js"
 						},
 						"development": {
 							"browserTarget": "flights:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/flights/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "flights:build"
+						"browserTarget": "flights:build",
+						"extraWebpackConfig": "projects/flights/webpack.config.js"
 					}
 				}
 			}
