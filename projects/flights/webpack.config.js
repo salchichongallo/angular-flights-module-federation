@@ -1,15 +1,20 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const {
+  shareAll,
+  withModuleFederationPlugin,
+} = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-
-  name: 'flights',
+  name: "flights",
 
   exposes: {
-    './Component': './projects/flights/src/app/app.component.ts',
+    "./FlightsModule": "./projects/flights/src/app/flights/flights.module.ts",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: "auto",
+    }),
   },
-
 });

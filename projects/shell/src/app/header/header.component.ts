@@ -17,6 +17,12 @@ import { Component } from '@angular/core';
             routerLinkActive="menu__item--active"
             >Home</a
           >
+          <a
+            routerLink="/flights"
+            class="menu__item"
+            routerLinkActive="menu__item--active"
+            >Flights</a
+          >
         </nav>
       </div>
     </header>
