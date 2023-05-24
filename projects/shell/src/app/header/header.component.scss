@@ -1,0 +1,42 @@
+.header {
+  background: #222;
+  color: #fff;
+  padding: 0.5rem 1rem;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    fill: #fff;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__item {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item--active {
+    background: #333;
+  }
+}
